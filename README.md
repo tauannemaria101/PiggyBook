@@ -1,7 +1,6 @@
-# PiggyBook
+# PiggyBook 🐷🌼📚
+Aplicativo - Biblioteca de livros em PDFs, PiggyBook
 
-A new Flutter project.
-
-## Getting Started
-
-FlutterFlow projects are built to run on the Flutter _stable_ release.
+## Design do Projeto
+Link para o Figma [aqui](https://www.figma.com/proto/Yzv0WxFYmQzhacNzBAb7Rv/PiggyBook?node-id=0-1&t=6L05hkDNdkGQqMCe-1), <br>
+Link para projeto no [FlutterFlow](https://app.flutterflow.io/share/piggy-book-ft1gc4).
