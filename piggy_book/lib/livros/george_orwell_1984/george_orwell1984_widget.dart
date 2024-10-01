@@ -1,29 +1,31 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:styled_divider/styled_divider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'livro2_model.dart';
-export 'livro2_model.dart';
+import 'george_orwell1984_model.dart';
+export 'george_orwell1984_model.dart';
 
-class Livro2Widget extends StatefulWidget {
-  const Livro2Widget({super.key});
+class GeorgeOrwell1984Widget extends StatefulWidget {
+  const GeorgeOrwell1984Widget({super.key});
 
   @override
-  State<Livro2Widget> createState() => _Livro2WidgetState();
+  State<GeorgeOrwell1984Widget> createState() => _GeorgeOrwell1984WidgetState();
 }
 
-class _Livro2WidgetState extends State<Livro2Widget> {
-  late Livro2Model _model;
+class _GeorgeOrwell1984WidgetState extends State<GeorgeOrwell1984Widget> {
+  late GeorgeOrwell1984Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => Livro2Model());
+    _model = createModel(context, () => GeorgeOrwell1984Model());
   }
 
   @override
@@ -105,7 +107,7 @@ class _Livro2WidgetState extends State<Livro2Widget> {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: Image.asset(
-                            'assets/images/livrodacapaverde.jpg',
+                            'assets/images/81StSOpmkjL._AC_UF1000,1000_QL80_.jpg',
                             width: 145.0,
                             height: 240.0,
                             fit: BoxFit.cover,
@@ -118,13 +120,13 @@ class _Livro2WidgetState extends State<Livro2Widget> {
                         alignment: const AlignmentDirectional(0.0, -1.0),
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 10.0, 0.0, 0.0),
+                              5.0, 11.0, 0.0, 0.0),
                           child: RichText(
                             textScaler: MediaQuery.of(context).textScaler,
                             text: TextSpan(
                               children: [
                                 TextSpan(
-                                  text: 'O livro da capa verde\n',
+                                  text: '1984                                 ',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -135,7 +137,7 @@ class _Livro2WidgetState extends State<Livro2Widget> {
                                       ),
                                 ),
                                 const TextSpan(
-                                  text: 'Páginas: 305',
+                                  text: 'George Orwell\nPáginas: 328',
                                   style: TextStyle(
                                     fontWeight: FontWeight.w300,
                                     fontSize: 13.0,
@@ -152,6 +154,65 @@ class _Livro2WidgetState extends State<Livro2Widget> {
                             ),
                           ),
                         ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 0.0, 0.0),
+                      child: StreamBuilder<List<LivrosRecord>>(
+                        stream: queryLivrosRecord(
+                          singleRecord: true,
+                        ),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 50.0,
+                                height: 50.0,
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    FlutterFlowTheme.of(context).primary,
+                                  ),
+                                ),
+                              ),
+                            );
+                          }
+                          List<LivrosRecord> toggleIconLivrosRecordList =
+                              snapshot.data!;
+                          // Return an empty Container when the item does not exist.
+                          if (snapshot.data!.isEmpty) {
+                            return Container();
+                          }
+                          final toggleIconLivrosRecord =
+                              toggleIconLivrosRecordList.isNotEmpty
+                                  ? toggleIconLivrosRecordList.first
+                                  : null;
+
+                          return ToggleIcon(
+                            onPressed: () async {
+                              await toggleIconLivrosRecord.reference.update({
+                                ...mapToFirestore(
+                                  {
+                                    'Favorito':
+                                        !toggleIconLivrosRecord.favorito,
+                                  },
+                                ),
+                              });
+                            },
+                            value: toggleIconLivrosRecord!.favorito,
+                            onIcon: FaIcon(
+                              FontAwesomeIcons.bookmark,
+                              color: FlutterFlowTheme.of(context).primary,
+                              size: 19.0,
+                            ),
+                            offIcon: FaIcon(
+                              FontAwesomeIcons.solidBookmark,
+                              color: FlutterFlowTheme.of(context).primary,
+                              size: 19.0,
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ],
@@ -174,7 +235,7 @@ class _Livro2WidgetState extends State<Livro2Widget> {
                       color: FlutterFlowTheme.of(context).warning,
                     ),
                     direction: Axis.horizontal,
-                    initialRating: _model.estrelasValue ??= 3.0,
+                    initialRating: _model.estrelasValue ??= 4.0,
                     unratedColor: const Color(0xFFD3D3D3),
                     itemCount: 5,
                     itemSize: 24.0,
@@ -185,7 +246,7 @@ class _Livro2WidgetState extends State<Livro2Widget> {
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
                 child: Text(
-                  'Uma distópia sobre o poder do dinheiro e o quanto o mesmo depende do valor que atribuimos a tal.',
+                  'Este clássico distópico retrata um futuro totalitário onde o Big Brother vigia cada movimento. Winston Smith, um funcionário do governo, começa a questionar a opressão do regime e busca a verdade, revelando os perigos da vigilância e da manipulação da informação.',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Inter',
                         letterSpacing: 0.0,

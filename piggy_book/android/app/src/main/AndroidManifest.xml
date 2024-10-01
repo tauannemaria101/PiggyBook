@@ -5,7 +5,7 @@
 
 
     <application
-        android:label="PiggyBook"
+        android:label="Piggy Book"
         tools:replace="android:label"
         android:icon="@mipmap/ic_launcher"
         android:requestLegacyExternalStorage="true">

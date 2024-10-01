@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>104619931228-u6p2i4jds48kkenuimfaf4ffuh867rfs.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.104619931228-u6p2i4jds48kkenuimfaf4ffuh867rfs</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>104619931228-7qgplf2an8hppclgls8sk4ailt02ffcv.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA4r8JeVnQuKhrukWBLA1Ol3cZu91PZ_9Y</string>
+	<key>GCM_SENDER_ID</key>
+	<string>104619931228</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.mycompany.piggybook</string>
+	<key>PROJECT_ID</key>
+	<string>piggy-book-a09fa</string>
+	<key>STORAGE_BUCKET</key>
+	<string>piggy-book-a09fa.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:104619931228:ios:0b1e92d515fcda11ecd899</string>
+</dict>
+</plist>

@@ -1,8 +1,10 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'livro1_widget.dart' show Livro1Widget;
+import 'a_menina_que_roubava_livros_widget.dart'
+    show AMeninaQueRoubavaLivrosWidget;
 import 'package:flutter/material.dart';
 
-class Livro1Model extends FlutterFlowModel<Livro1Widget> {
+class AMeninaQueRoubavaLivrosModel
+    extends FlutterFlowModel<AMeninaQueRoubavaLivrosWidget> {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for estrelas widget.

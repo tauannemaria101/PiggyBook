@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -95,14 +96,16 @@ class _ContaWidgetState extends State<ContaWidget> {
                   Padding(
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(100.0),
-                      child: Image.asset(
-                        'assets/images/snufkin_varanda.jpg',
-                        width: 150.0,
-                        height: 150.0,
-                        fit: BoxFit.fill,
-                        alignment: const Alignment(0.0, 0.0),
+                    child: AuthUserStreamWidget(
+                      builder: (context) => ClipRRect(
+                        borderRadius: BorderRadius.circular(100.0),
+                        child: Image.network(
+                          currentUserPhoto,
+                          width: 150.0,
+                          height: 150.0,
+                          fit: BoxFit.fill,
+                          alignment: const Alignment(0.0, 0.0),
+                        ),
                       ),
                     ),
                   ),
@@ -143,7 +146,7 @@ class _ContaWidgetState extends State<ContaWidget> {
                           textStyle: FlutterFlowTheme.of(context)
                               .titleSmall
                               .override(
-                                fontFamily: 'Inter',
+                                fontFamily: 'Inter Tight',
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.normal,
@@ -180,7 +183,7 @@ class _ContaWidgetState extends State<ContaWidget> {
                           textStyle: FlutterFlowTheme.of(context)
                               .titleSmall
                               .override(
-                                fontFamily: 'Inter',
+                                fontFamily: 'Inter Tight',
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.normal,

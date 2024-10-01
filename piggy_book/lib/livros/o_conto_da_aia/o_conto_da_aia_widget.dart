@@ -1,29 +1,31 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:styled_divider/styled_divider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'livro1_model.dart';
-export 'livro1_model.dart';
+import 'o_conto_da_aia_model.dart';
+export 'o_conto_da_aia_model.dart';
 
-class Livro1Widget extends StatefulWidget {
-  const Livro1Widget({super.key});
+class OContoDaAiaWidget extends StatefulWidget {
+  const OContoDaAiaWidget({super.key});
 
   @override
-  State<Livro1Widget> createState() => _Livro1WidgetState();
+  State<OContoDaAiaWidget> createState() => _OContoDaAiaWidgetState();
 }
 
-class _Livro1WidgetState extends State<Livro1Widget> {
-  late Livro1Model _model;
+class _OContoDaAiaWidgetState extends State<OContoDaAiaWidget> {
+  late OContoDaAiaModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => Livro1Model());
+    _model = createModel(context, () => OContoDaAiaModel());
   }
 
   @override
@@ -105,7 +107,7 @@ class _Livro1WidgetState extends State<Livro1Widget> {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: Image.asset(
-                            'assets/images/terra_sonhos_capa.webp',
+                            'assets/images/91AHNAr638L._AC_UF1000,1000_QL80_.jpg',
                             width: 145.0,
                             height: 240.0,
                             fit: BoxFit.cover,
@@ -118,13 +120,13 @@ class _Livro1WidgetState extends State<Livro1Widget> {
                         alignment: const AlignmentDirectional(0.0, -1.0),
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 10.0, 0.0, 0.0),
+                              5.0, 11.0, 0.0, 0.0),
                           child: RichText(
                             textScaler: MediaQuery.of(context).textScaler,
                             text: TextSpan(
                               children: [
                                 TextSpan(
-                                  text: 'Terra de Sonhos e Acasos\n',
+                                  text: 'O Conto da Aia                    ',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -135,7 +137,7 @@ class _Livro1WidgetState extends State<Livro1Widget> {
                                       ),
                                 ),
                                 const TextSpan(
-                                  text: 'Páginas: 305',
+                                  text: 'Margaret Atwood\nPáginas: 311',
                                   style: TextStyle(
                                     fontWeight: FontWeight.w300,
                                     fontSize: 13.0,
@@ -152,6 +154,65 @@ class _Livro1WidgetState extends State<Livro1Widget> {
                             ),
                           ),
                         ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 0.0, 0.0),
+                      child: StreamBuilder<List<LivrosRecord>>(
+                        stream: queryLivrosRecord(
+                          singleRecord: true,
+                        ),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 50.0,
+                                height: 50.0,
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    FlutterFlowTheme.of(context).primary,
+                                  ),
+                                ),
+                              ),
+                            );
+                          }
+                          List<LivrosRecord> toggleIconLivrosRecordList =
+                              snapshot.data!;
+                          // Return an empty Container when the item does not exist.
+                          if (snapshot.data!.isEmpty) {
+                            return Container();
+                          }
+                          final toggleIconLivrosRecord =
+                              toggleIconLivrosRecordList.isNotEmpty
+                                  ? toggleIconLivrosRecordList.first
+                                  : null;
+
+                          return ToggleIcon(
+                            onPressed: () async {
+                              await toggleIconLivrosRecord.reference.update({
+                                ...mapToFirestore(
+                                  {
+                                    'Favorito':
+                                        !toggleIconLivrosRecord.favorito,
+                                  },
+                                ),
+                              });
+                            },
+                            value: toggleIconLivrosRecord!.favorito,
+                            onIcon: FaIcon(
+                              FontAwesomeIcons.bookmark,
+                              color: FlutterFlowTheme.of(context).primary,
+                              size: 19.0,
+                            ),
+                            offIcon: FaIcon(
+                              FontAwesomeIcons.solidBookmark,
+                              color: FlutterFlowTheme.of(context).primary,
+                              size: 19.0,
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ],
@@ -185,7 +246,7 @@ class _Livro1WidgetState extends State<Livro1Widget> {
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
                 child: Text(
-                  'Após a morte dos pais, Ismael volta ao interior de São Paulo para reaver sua herança. \nInundada por uma tempestade e isolada do mundo a pequena cidade de Rio das Almas está sob intervenção militar. Seus habitantes, acuados por estranhos crimes, professam uma inquietante religiosidade baseada num livro de autor desconhecido. ',
+                  'Este romance distópico se passa em uma sociedade totalitária chamada Gileade, onde as mulheres perderam seus direitos e são classificadas em diferentes funções. A protagonista, Offred, é uma aia forçada a gerar filhos para uma elite fértil. A história explora temas de opressão, feminismo e a luta pela liberdade, sendo uma reflexão poderosa sobre o controle social e a resistência.',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Inter',
                         letterSpacing: 0.0,

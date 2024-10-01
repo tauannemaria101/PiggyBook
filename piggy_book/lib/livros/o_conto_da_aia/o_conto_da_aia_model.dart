@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'livro2_widget.dart' show Livro2Widget;
+import 'o_conto_da_aia_widget.dart' show OContoDaAiaWidget;
 import 'package:flutter/material.dart';
 
-class Livro2Model extends FlutterFlowModel<Livro2Widget> {
+class OContoDaAiaModel extends FlutterFlowModel<OContoDaAiaWidget> {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for estrelas widget.

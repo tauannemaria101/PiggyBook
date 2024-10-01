@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "104619931228",
+    "project_id": "piggy-book-a09fa",
+    "storage_bucket": "piggy-book-a09fa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:104619931228:android:6b7f66b26e07d45becd899",
+        "android_client_info": {
+          "package_name": "com.mycompany.piggybook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "104619931228-7qgplf2an8hppclgls8sk4ailt02ffcv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.piggybook",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "104619931228-p44eq2kk8qton50k8q345ulssahudsnd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhKSdNuDLmE7hR3UDVpeQTZDA1E-JeR0U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "104619931228-p44eq2kk8qton50k8q345ulssahudsnd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "104619931228-u6p2i4jds48kkenuimfaf4ffuh867rfs.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.piggybook"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
