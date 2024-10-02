@@ -102,8 +102,8 @@ class _ContaWidgetState extends State<ContaWidget> {
                         child: AuthUserStreamWidget(
                           builder: (context) => ClipRRect(
                             borderRadius: BorderRadius.circular(100.0),
-                            child: Image.network(
-                              currentUserPhoto,
+                            child: Image.asset(
+                              'assets/images/snufkin_varanda.jpg',
                               width: 150.0,
                               height: 150.0,
                               fit: BoxFit.fill,
@@ -115,25 +115,22 @@ class _ContaWidgetState extends State<ContaWidget> {
                       Padding(
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                        child: AuthUserStreamWidget(
-                          builder: (context) => Text(
-                            currentUserDisplayName,
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Inter',
-                                  fontSize: 17.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                          ),
+                        child: Text(
+                          'Visitante',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Inter',
+                                    fontSize: 17.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                         ),
                       ),
                       Padding(
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 20.0),
                         child: Text(
-                          currentUserEmail,
+                          'visitante_piggybook@gmail.com',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',

@@ -93,53 +93,7 @@ class _LoginWidgetState extends State<LoginWidget> {
 
                           context.goNamedAuth('Home', context.mounted);
                         },
-                        text: 'Entrar conta existente',
-                        icon: const FaIcon(
-                          FontAwesomeIcons.google,
-                          size: 15.0,
-                        ),
-                        options: FFButtonOptions(
-                          width: 300.0,
-                          height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 16.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: const Color(0xFFD9D9D9),
-                          textStyle: FlutterFlowTheme.of(context)
-                              .titleSmall
-                              .override(
-                                fontFamily: 'Inter Tight',
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.normal,
-                              ),
-                          elevation: 0.0,
-                          borderRadius: BorderRadius.circular(8.0),
-                          hoverColor: FlutterFlowTheme.of(context).primary,
-                          hoverTextColor:
-                              FlutterFlowTheme.of(context).secondary,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: const AlignmentDirectional(0.0, -1.0),
-                    child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          GoRouter.of(context).prepareAuthEvent();
-                          final user =
-                              await authManager.signInWithGoogle(context);
-                          if (user == null) {
-                            return;
-                          }
-
-                          context.goNamedAuth('Home', context.mounted);
-                        },
-                        text: 'Criar nova conta',
+                        text: 'Entrar com Google',
                         icon: const FaIcon(
                           FontAwesomeIcons.google,
                           size: 15.0,

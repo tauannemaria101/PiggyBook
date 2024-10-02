@@ -121,7 +121,7 @@ class _SalvosWidgetState extends State<SalvosWidget> {
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               16.0, 0.0, 0.0, 0.0),
                           child: Text(
-                            'Hora de ler! :)',
+                            'Hora de ler! \nTodos seus livros salvos aparecem aqui :)',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
