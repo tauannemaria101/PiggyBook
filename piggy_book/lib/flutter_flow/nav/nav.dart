@@ -121,10 +121,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const AMeninaQueRoubavaLivrosWidget(),
         ),
         FFRoute(
-          name: 'Terra_de_Sonhos_e_AcasosCopyCopyCopy',
-          path: '/terraDeSonhosEAcasosCopyCopyCopy',
-          builder: (context, params) =>
-              const TerraDeSonhosEAcasosCopyCopyCopyWidget(),
+          name: 'o_alquimista',
+          path: '/oAlquimista',
+          builder: (context, params) => const OAlquimistaWidget(),
         ),
         FFRoute(
           name: 'O_Hobbit',

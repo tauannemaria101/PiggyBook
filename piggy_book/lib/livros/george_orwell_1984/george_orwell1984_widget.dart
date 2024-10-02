@@ -1,8 +1,8 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:styled_divider/styled_divider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -126,7 +126,8 @@ class _GeorgeOrwell1984WidgetState extends State<GeorgeOrwell1984Widget> {
                             text: TextSpan(
                               children: [
                                 TextSpan(
-                                  text: '1984                                 ',
+                                  text:
+                                      '1984                                                                           \n',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -137,12 +138,16 @@ class _GeorgeOrwell1984WidgetState extends State<GeorgeOrwell1984Widget> {
                                       ),
                                 ),
                                 const TextSpan(
-                                  text: 'George Orwell\nPáginas: 328',
+                                  text: 'George Orwell\n',
                                   style: TextStyle(
                                     fontWeight: FontWeight.w300,
                                     fontSize: 13.0,
                                     fontStyle: FontStyle.normal,
                                   ),
+                                ),
+                                const TextSpan(
+                                  text: 'Páginas: 328',
+                                  style: TextStyle(),
                                 )
                               ],
                               style: FlutterFlowTheme.of(context)
@@ -154,65 +159,6 @@ class _GeorgeOrwell1984WidgetState extends State<GeorgeOrwell1984Widget> {
                             ),
                           ),
                         ),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 0.0, 0.0),
-                      child: StreamBuilder<List<LivrosRecord>>(
-                        stream: queryLivrosRecord(
-                          singleRecord: true,
-                        ),
-                        builder: (context, snapshot) {
-                          // Customize what your widget looks like when it's loading.
-                          if (!snapshot.hasData) {
-                            return Center(
-                              child: SizedBox(
-                                width: 50.0,
-                                height: 50.0,
-                                child: CircularProgressIndicator(
-                                  valueColor: AlwaysStoppedAnimation<Color>(
-                                    FlutterFlowTheme.of(context).primary,
-                                  ),
-                                ),
-                              ),
-                            );
-                          }
-                          List<LivrosRecord> toggleIconLivrosRecordList =
-                              snapshot.data!;
-                          // Return an empty Container when the item does not exist.
-                          if (snapshot.data!.isEmpty) {
-                            return Container();
-                          }
-                          final toggleIconLivrosRecord =
-                              toggleIconLivrosRecordList.isNotEmpty
-                                  ? toggleIconLivrosRecordList.first
-                                  : null;
-
-                          return ToggleIcon(
-                            onPressed: () async {
-                              await toggleIconLivrosRecord.reference.update({
-                                ...mapToFirestore(
-                                  {
-                                    'Favorito':
-                                        !toggleIconLivrosRecord.favorito,
-                                  },
-                                ),
-                              });
-                            },
-                            value: toggleIconLivrosRecord!.favorito,
-                            onIcon: FaIcon(
-                              FontAwesomeIcons.bookmark,
-                              color: FlutterFlowTheme.of(context).primary,
-                              size: 19.0,
-                            ),
-                            offIcon: FaIcon(
-                              FontAwesomeIcons.solidBookmark,
-                              color: FlutterFlowTheme.of(context).primary,
-                              size: 19.0,
-                            ),
-                          );
-                        },
                       ),
                     ),
                   ],
@@ -252,6 +198,109 @@ class _GeorgeOrwell1984WidgetState extends State<GeorgeOrwell1984Widget> {
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w500,
                       ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                child: StreamBuilder<List<LivrosRecord>>(
+                  stream: queryLivrosRecord(),
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
+                          width: 50.0,
+                          height: 50.0,
+                          child: CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                              FlutterFlowTheme.of(context).primary,
+                            ),
+                          ),
+                        ),
+                      );
+                    }
+                    List<LivrosRecord> buttonLivrosRecordList = snapshot.data!;
+
+                    return InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onLongPress: () async {
+                        await _model.george1984!.reference.delete();
+                        await showDialog(
+                          context: context,
+                          builder: (alertDialogContext) {
+                            return AlertDialog(
+                              content: const Text('Seu livro foi removido!'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(alertDialogContext),
+                                  child: const Text('Ok'),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      },
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          var livrosRecordReference =
+                              LivrosRecord.collection.doc('george1984');
+                          await livrosRecordReference
+                              .set(createLivrosRecordData(
+                            livroImagem:
+                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/piggy-book-a23t21/assets/5xyrxysg0k2n/81StSOpmkjL._AC_UF1000%2C1000_QL80_.jpg',
+                          ));
+                          _model.george1984 = LivrosRecord.getDocumentFromData(
+                              createLivrosRecordData(
+                                livroImagem:
+                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/piggy-book-a23t21/assets/5xyrxysg0k2n/81StSOpmkjL._AC_UF1000%2C1000_QL80_.jpg',
+                              ),
+                              livrosRecordReference);
+                          await showDialog(
+                            context: context,
+                            builder: (alertDialogContext) {
+                              return AlertDialog(
+                                content: const Text('Seu livro foi adicionado!'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext),
+                                    child: const Text('Ok'),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+
+                          safeSetState(() {});
+                        },
+                        text: 'Adicionar Livro',
+                        icon: const FaIcon(
+                          FontAwesomeIcons.solidBookmark,
+                          size: 17.0,
+                        ),
+                        options: FFButtonOptions(
+                          height: 50.0,
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 0.0),
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: FlutterFlowTheme.of(context).primary,
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Inter Tight',
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                  ),
+                          elevation: 0.0,
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ),
             ],

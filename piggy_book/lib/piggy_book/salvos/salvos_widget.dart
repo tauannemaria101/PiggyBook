@@ -3,7 +3,9 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:octo_image/octo_image.dart';
 import 'salvos_model.dart';
 export 'salvos_model.dart';
 
@@ -134,38 +136,68 @@ class _SalvosWidgetState extends State<SalvosWidget> {
                   ),
                 ),
               ),
-              StreamBuilder<List<UserRecord>>(
-                stream: queryUserRecord(),
-                builder: (context, snapshot) {
-                  // Customize what your widget looks like when it's loading.
-                  if (!snapshot.hasData) {
-                    return Center(
-                      child: SizedBox(
-                        width: 50.0,
-                        height: 50.0,
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            FlutterFlowTheme.of(context).primary,
+              Align(
+                alignment: const AlignmentDirectional(-1.0, -1.0),
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                  child: StreamBuilder<List<LivrosRecord>>(
+                    stream: queryLivrosRecord(),
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: SizedBox(
+                            width: 50.0,
+                            height: 50.0,
+                            child: CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                FlutterFlowTheme.of(context).primary,
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-                    );
-                  }
-                  List<UserRecord> listViewUserRecordList = snapshot.data!;
+                        );
+                      }
+                      List<LivrosRecord> rowLivrosRecordList = snapshot.data!;
 
-                  return ListView.builder(
-                    padding: EdgeInsets.zero,
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    itemCount: listViewUserRecordList.length,
-                    itemBuilder: (context, listViewIndex) {
-                      final listViewUserRecord =
-                          listViewUserRecordList[listViewIndex];
-                      return Container(
-                          width: 100, height: 100, color: Colors.green);
+                      return SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: List.generate(rowLivrosRecordList.length,
+                              (rowIndex) {
+                            final rowLivrosRecord =
+                                rowLivrosRecordList[rowIndex];
+                            return Align(
+                              alignment: const AlignmentDirectional(-1.0, -1.0),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    15.0, 10.0, 0.0, 0.0),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: OctoImage(
+                                    placeholderBuilder: (_) => const SizedBox.expand(
+                                      child: Image(
+                                        image: BlurHashImage(
+                                            'L2OWsg4n~q%M009F_3M{00RQxuIB'),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    image: NetworkImage(
+                                      rowLivrosRecord.livroImagem,
+                                    ),
+                                    width: 145.0,
+                                    height: 240.0,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            );
+                          }),
+                        ),
+                      );
                     },
-                  );
-                },
+                  ),
+                ),
               ),
             ],
           ),
